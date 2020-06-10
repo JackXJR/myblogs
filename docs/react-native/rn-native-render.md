@@ -39,7 +39,7 @@ RCTRootView 在 RN 启动完成后，会进入渲染流程。先创建一个 RCT
 ### 什么是 shadowView？
 
 shadowView 的官方解释：
-![](https://user-gold-cdn.xitu.io/2020/6/9/172988c7a0175ef7?w=1240&h=461&f=png&s=287987)
+![](./resources/shadow_view.png)
 
 简化翻译：
 
@@ -55,7 +55,7 @@ shadowView 的官方解释：
 
 JS 端编写的 React 代码是怎么渲染成原生组件的呢？
 
-![原生层渲染流程图](https://user-gold-cdn.xitu.io/2020/6/9/172988c79e07562c?w=595&h=502&f=png&s=101977)
+![原生层渲染流程图](./resources/native_render.png)
 
 #### createView
 
@@ -89,26 +89,26 @@ RCT_EXPORT_METHOD(createView:viewName:rootTag:props:)
 
 在调用`createView:viewName:rootTag:props:`方法后，会紧接着触发`setChildren:reactTags:`方法来渲染子视图，该方法主要做三件事，代码实现如下：
 
-![setChildren源码](https://user-gold-cdn.xitu.io/2020/6/9/172988c7a422e4cf?w=1240&h=915&f=png&s=414563)
+![setChildren源码](./resources/setChildren_code.png)
 
 ##### shadowView
 
 - RCTShadowView `insertReactSubview:atIndex:`方法，在 YGNode 树中插入相应的子节点，此时，并没有添加到视图层级树中！代码实现如下：
 
-![](https://user-gold-cdn.xitu.io/2020/6/9/172988c7a3ca7703?w=1160&h=592&f=png&s=172915)
+![](./resources/shadowview_insert.png)
 
 ##### pendingUIBlocks
 
 - 所有 JS to Native 的 UI 操作都不会立即执行，而是调用`addUIBlock:`将 UI 变化添加队列`_pendingUIBlocks`，等待合适的时机再按批执行队列。代码实现如下：
 
-![](https://user-gold-cdn.xitu.io/2020/6/9/172988c79ff58666?w=1030&h=420&f=png&s=93398)
+![](./resources/addUIBlock.png)
 
 ##### View
 
 - UIView+Rect 的 `insertReactSubview:atIndex:`方法
   按照层级顺序(index)将 subView 添加到 reactSubviews 中，此时，还是没有真正添加到视图层级树中！
   代码实现如下：
-  ![](https://user-gold-cdn.xitu.io/2020/6/9/172988c7a170b46f?w=1240&h=450&f=png&s=238279)
+  ![](./resources/view_insert.png)
 
 #### flushUIBlocks
 
@@ -138,17 +138,17 @@ JS 在完成一批操作后（通过定时器每隔 16ms 调用一次），会�
 #### didUpdateReactSubViews
 
 执行 flushUIBlocks 方法后，最终会调用 UIView+Rect 的 `didUpdateReactSubviews` 方法,完成 View 添加到视图层级树的操作。代码实现如下：
-![](https://user-gold-cdn.xitu.io/2020/6/9/172988cc9db51d1a?w=1186&h=276&f=png&s=77708)
+![](./resources/didUpdateReactSubviews.png)
 
 ### 如何刷新视图？
 
-![原生端刷新视图的流程图](https://user-gold-cdn.xitu.io/2020/6/9/172988c7d79287c0?w=479&h=436&f=png&s=30978)
+![原生端刷新视图的流程图](./resources/native_refresh.png)
 
 #### updateView
 
 JS 端`setState`后，当属性等发生变化时，JS 端通过 diff 算法计算后，将变化后的属性通过 UIManager 的`updateView`方法更新界面，源码如下：
 
-![](https://user-gold-cdn.xitu.io/2020/6/9/172988c7c8068fd5?w=1240&h=496&f=png&s=267064)
+![](./resources/updateView.png)
 
 主要做三件事
 
@@ -162,7 +162,7 @@ JS 端`setState`后，当属性等发生变化时，JS 端通过 diff 算法计�
 
 JS 端`setState`后，新旧 Virtual DOM 的节点发生增加，删除，排序等节点变化后，JS 端通过 diff 算法计算后，通过 UIManager 的`manageChildren`方法更新界面，源码如下：
 
-![](https://user-gold-cdn.xitu.io/2020/6/9/172988c7d46630fc?w=1240&h=734&f=png&s=414492)
+![](./resources/manageChildren.png)
 
 与`createView`类似，主要做三件事
 

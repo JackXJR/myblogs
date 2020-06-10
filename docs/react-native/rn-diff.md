@@ -41,7 +41,7 @@ React 通过`setState`界面刷新时，并不会马上对所有的真实的 DOM
 - 节点`C`和`D`是节点`B`的子元素对象（children）
 - 最后，映射出来的 js 对象（Virtual Dom）如下：
 
-![Virtual Dom结构图](https://upload-images.jianshu.io/upload_images/3995013-f9d8f09a2cf0b371.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
+![Virtual Dom结构图](./resources/vd_tree.png)
 
 ### React Diff 算法的两个假设
 
@@ -68,7 +68,7 @@ React Diff 算法的实现，几乎都是基于以上两个假设进行优化的
 
 - 修改节点 A 的属性 style
 
-![相同类型节点的比较](https://upload-images.jianshu.io/upload_images/3995013-3ea762aa423bc0a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
+![相同类型节点的比较](./resources/same_type.png)
 
 > 依据假设 1 的前半句 `两个相同组件将会生成相似的 DOM 结构`，由于新旧节点类型相同（tag 都是 A），DOM 结构没有发生变化，React 仅对属性（style）进行重设(将 styleBefore 改成将 styleAfter)从而实现节点的转换和界面的更新
 
@@ -76,10 +76,10 @@ React Diff 算法的实现，几乎都是基于以上两个假设进行优化的
 
 - 将节点 A 及其子节点改成节点 D 的子节点
 
-![不同节点类型的比较-code](https://upload-images.jianshu.io/upload_images/3995013-767f6d8411462f23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
+![不同节点类型的比较-code](./resources/diff_type.png)
 
 为了方便分析，首先抽象成 DOM tree 节点模型，如下
-![不同节点类型的比较-tree](https://upload-images.jianshu.io/upload_images/3995013-5aebe779ce8fd693.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
+![不同节点类型的比较-tree](./resources/diff_type_node.png)
 
 > 依据假设假设 1 的后半句`两个不同组件将会生成不同的 DOM 结构`，当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较，因此，React 会直接删除前面的节点，然后创建并插入新的节点。
 
@@ -95,11 +95,11 @@ React Diff 算法的实现，几乎都是基于以上两个假设进行优化的
 
 - 在节点 B 与 C 之间插入节点 F
 
-![添加节点-题目](https://upload-images.jianshu.io/upload_images/3995013-8edd756eee6da9c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600)
+![添加节点-题目](./resources/insert_node.png)
 
 每个节点是否添加唯一标识 key 的算法实现与对比
 
-![列表节点的比较-添加节点](https://upload-images.jianshu.io/upload_images/3995013-4b488fc909020c7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
+![列表节点的比较-添加节点](./resources/insert_node_meds.png)
 
 1. 在方案一中，没有添加唯一的稳定的 key，无法定位到具体修改的位置，只能依次比较前后两个状态（即 `A、B、C、D、E` 和 `A、B、F、C、D、E`）,当比较到第三个时，发现 C 与 F 不相同，记录下来，往后依次比较，
    D 与 C，E 与 D，均不相同，也记录下来，最后加上新状态新增的一个 E 节点，一共需要对 DOM 进行 4 次操作
@@ -112,7 +112,7 @@ React Diff 算法的实现，几乎都是基于以上两个假设进行优化的
 
 - 删除节点 B
 
-![删除节点](https://upload-images.jianshu.io/upload_images/3995013-6628550854532c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
+![删除节点](./resources/delete_node.png)
 
 1. 在方案一中，没有添加唯一的稳定的 key，无法定位到具体修改的位置，只能依次比较前后两个状态（即 `A、B、C` 和 `A、C`）,当比较到第二个时，发现 B 与 C 不相同，记录下来，往后依次比较，
    发现新状态比旧状态少了节点 C，移除旧状态的节点 C，一共需要对 DOM 进行 2 次操作
@@ -125,11 +125,11 @@ React Diff 算法的实现，几乎都是基于以上两个假设进行优化的
 
 - 交换节点 B 和 C 的位置
 
-![排序-题目](https://upload-images.jianshu.io/upload_images/3995013-e620f7438440f311.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
+![排序-题目](./resources/sort_node.png)
 
 每个节点是否添加唯一标识 key 的算法实现与对比
 
-![列表节点的比较-排序](https://upload-images.jianshu.io/upload_images/3995013-9b884ceab2996cf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
+![列表节点的比较-排序](./resources/sort_node_meds.png)
 
 1. 在方案一中，在没有添加 key 的情况下，无法定位到具体的节点，只能通过遍历，依次比较，再逐个更新。比如在该例中，要交换 shape5 和 shape6 的节点 B 和 C 的位置，执行操作如下：
 

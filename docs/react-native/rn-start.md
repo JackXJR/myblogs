@@ -5,7 +5,7 @@
 > 为什么 ReactNative 能像 web 端一样实现跨端和热更新，同时又有接近 Native 的性能呢？
 
 ReactNative 的本质是在 JS 端编写 React 代码，通过 JavaScriptCore 引擎，把 JS 端编写的组件和事件转换成 Native 原生组件进行渲染，如下图：
-![](https://user-gold-cdn.xitu.io/2020/6/9/1729870537dfa743?w=2268&h=786&f=png&s=314069)
+![](./resources/rn_principle.png)
 
 理解 ReactNative 的实现原理，主要是搞清楚 JS 端与 Native 端的通信原理。而要保证 JavaScript 和 Native 具备向对方通信的能力，首先需要搞清楚 RN 在启动的时候都做了些啥，这篇文章就是基于 ReactNatve 源码分析的基础上，对 ReactNative 的启动流程进行深入浅出的分析。
 
@@ -32,7 +32,7 @@ ReactNative 的本质是在 JS 端编写 React 代码，通过 JavaScriptCore �
 
 所以 JSBridge 的初始化操作，也就是对`JSBundle`、`Native Modules`、`Module 配置表`、`JSCExecutor`四个模块进行初始化，具体逻辑流程图如下：
 
-![rn启动流程图](https://user-gold-cdn.xitu.io/2020/6/9/1729861cc5fc6df7?w=400&h=411&f=png&s=32741)
+![rn启动流程图](./resources/rn_start.png)
 
 #### 1.加载 JSBundle 代码
 
