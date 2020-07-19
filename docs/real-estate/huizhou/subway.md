@@ -1,6 +1,6 @@
-[深惠地铁 14 号线](./src/subway_14.jpg)
+![深惠地铁 14 号线](./src/subway_14.jpg)
 
-[惠州地图](./src/huizhou_map.jpg)
+![惠州地图](./src/huizhou_map.jpg)
 
 ### 惠阳
 
