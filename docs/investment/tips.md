@@ -1,3 +1,5 @@
+- [投资生涯回顾](/investment/tips.md)
+
 ## 投资生涯回顾{docsify-ignore}
 
 ### 2010 年启蒙
