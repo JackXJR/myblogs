@@ -126,9 +126,9 @@
 
 [花样年·花好园](https://hui.fang.lianjia.com/loupan/p_hynhybjoyc/?fb_expo_id=337707238326714369)
 
-![花样年·花好园](./src/huayangnianhua.png)
+![花样年·花好园](../src/huayangnianhua.png)
 
-[3 居室户型图](./src/huayangnianhua_hx_3.png)
+![3 居室户型图](../src/huayangnianhua_hx_3.png)
 
 #### 珑禧花园
 
