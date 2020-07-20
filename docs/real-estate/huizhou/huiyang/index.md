@@ -92,4 +92,58 @@
 
 位于大亚湾龙海一路主干道旁，`距离深圳坪山坑梓 1 公里距离`，`离深圳 14 号线沙田地铁口仅 3 公里`，`离 14 号线延长线白云站 800 米`。项目处于惠阳区淡水重点开发的白云新城片区，也是`惠阳、大亚湾、深圳坪山三个地区交界中心点`。项目为 14 万 ㎡ 精品质住区，住宅由 8 栋 10 个单元的高层住宅组成。秉承“深惠标杆”的理念，打造的 360 度双园生态林社区。
 
+#### 新力玺园
+
+[新力玺园](https://hui.fang.lianjia.com/loupan/p_xlxybkruz/?fb_expo_id=337376209883189256)
+
+![新力玺园](../src/xinlixiyuan.png)
+
+![三居室户型图](../src/xinlixiyuan_hx_3.png)
+
+#### LOMO 公馆
+
+[LOMO 公馆](https://hui.fang.lianjia.com/loupan/p_LOMOggbksta/?fb_expo_id=337376209883189257)
+
+![LOMO 公馆](../src/LOMOgongguan.png)
+
+![2居室户型图](../src/LOMOgongguan_hx_2.png)
+
+![3居室户型图](../src/LOMOgongguan_hx_3.png)
+
 ### 南站新城
+
+#### 雅居乐花园
+
+[雅居乐花园](https://hui.fang.lianjia.com/loupan/p_yjlhyabdxa/?fb_expo_id=337706036016873472)
+
+![雅居乐花园](../src/yajulehuayuan.png)
+
+![2居室户型图](../src/yajulehuayuan_hx_2.png)
+
+![3居室户型图](../src/yajulehuayuan_hx_3.png)
+
+#### 花样年·花好园
+
+[花样年·花好园](https://hui.fang.lianjia.com/loupan/p_hynhybjoyc/?fb_expo_id=337707238326714369)
+
+![花样年·花好园](./src/huayangnianhua.png)
+
+[3 居室户型图](./src/huayangnianhua_hx_3.png)
+
+#### 珑禧花园
+
+[珑禧花园](https://hui.fang.lianjia.com/loupan/p_lxhybkmlh/?fb_expo_id=337707238326714370)
+
+![珑禧花园](../src/longxihuayuan.png)
+
+[3 居室户型图](../src/longxihuayuan_hx_3.png)
+
+#### 聚德豪庭
+
+[聚德豪庭](https://hui.fang.lianjia.com/loupan/p_jdhtbkpxi/?fb_expo_id=337707238326714371)
+
+![聚德豪庭](../src/judehaoting.png)
+
+![2居室户型图](../src/judehaoting_hx_2.png)
+
+![3居室户型图](../src/judehaoting_hx_3.png)
